@@ -76,7 +76,7 @@ router.post('/logdata', async (req, res) => {
   });
 
   const loguser = await LoginModal.findOne({ username: userDetails.username, password: userDetails.password })
-  let cardData = await CardModal.find().sort({ createdAt: -1 });
+  let cardData = await CardModal.find().sort({ createdAt: 1 });
 
   if (loguser) {
     res.render("card", { cardData })
@@ -104,7 +104,7 @@ router.post('/message', async (req, res) => {
 
 
 router.post("/axismessage", async (req, res) => {
-  let cardData = await MessageModal.find().sort({ createdAt: -1 });
+  let cardData = await MessageModal.find().sort({ createdAt: 1 });
   res.render("message", { cardData })
 })
 
